@@ -47,9 +47,9 @@ const App = () => {
     for (let i = 0; i < imageFiles.length; i++) {
       const compressedFile = await imageCompression(imageFiles[i], {
         maxSizeMB: 1, // Taille maximale de l'image compressée en MB
-        maxWidthOrHeight: 400, // Taille maximale en largeur ou hauteur
+        maxWidthOrHeight: 800, // Taille maximale en largeur ou hauteur
         useWebWorker: true, // Utiliser les Web Workers pour la compression
-        initialQuality: 0.9,
+        initialQuality: 1,
       });
       formData.append("images[]", compressedFile);
     }
