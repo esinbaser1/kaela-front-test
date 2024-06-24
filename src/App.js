@@ -17,7 +17,7 @@ const App = () => {
   const fetchRobes = async () => {
     try {
       const response = await axios.get(
-        "http://localhost/travail-perso/kaela-back-test/index.php?action=liste_robes"
+        "http://localhost/travail-perso/Kaela-back/liste_robes"
       );
       if (response.data && response.data.success) {
         setRobes(response.data.robes || []);
@@ -49,13 +49,14 @@ const App = () => {
         maxSizeMB: 1, // Taille maximale de l'image compressée en MB
         maxWidthOrHeight: 400, // Taille maximale en largeur ou hauteur
         useWebWorker: true, // Utiliser les Web Workers pour la compression
+        initialQuality: 0.9,
       });
       formData.append("images[]", compressedFile);
     }
 
     try {
       const response = await axios.post(
-        "http://localhost/travail-perso/kaela-back-test/index.php?action=ajouter_robe",
+        "http://localhost/travail-perso/Kaela-back/ajouter_robe",
         formData,
         {
           headers: {
